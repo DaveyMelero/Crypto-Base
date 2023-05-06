@@ -4,12 +4,11 @@ import { ThemeProvider } from "./context/ThemeContext";
 
 
 function App() {
-  return <ThemeProvider>
+  return (
+  <ThemeProvider>
       <Navbar />
   </ThemeProvider>
-
-  
-  
+  );
 }
 
 export default App;
