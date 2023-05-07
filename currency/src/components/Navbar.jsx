@@ -12,7 +12,7 @@ const Navbar = () => {
 
     const handleNav = () => {
         setNav(!nav) 
-    }
+    };
 
   return (
     <div>
@@ -36,7 +36,10 @@ const Navbar = () => {
 
 
             {/* Mobile Menu */}
-            <div className='md:hidden fixed left-0 top-20 flex flex-col items-center justify-between w-full h-[90%] bg-primary ease-in duration-300 z-10'>
+            <div className={nav ? 'md:hidden fixed left-0 top-20 flex flex-col items-center justify-between w-full h-[90%] bg-primary ease-in duration-300 z-10'
+                : 'fixed left-[-100%] top-20 h-[90%] flex flex-col items-center justify-between esase-in duration-300'
+                }>
+
                 <ul className='w-full p-4'>
                     <li className='border-b py-6'>
                         <Link to='/'>Home</Link>
@@ -53,7 +56,7 @@ const Navbar = () => {
                      <button className='w-full my-2 p-3 bg-primary text-primary border border-secondary rounded-2xl shadow-xl'>Sign In</button>
                     </Link>
                     <Link to='/signup'>
-                     <button className='w-full my-2 p-3 bg-button text-btnText rounded-2xl shadow-xl'>Sign up</button>
+                     <button className='w-full my-2 p-3 bg-button text-btntext rounded-2xl shadow-xl'>Sign up</button>
                     </Link>
                 </div>
             </div>
