@@ -1,5 +1,5 @@
-import { createContext, UserContext, useState, useEffect,} from "react";
-import{auth, db} from './/firebase'
+import { createContext, useContext, useState, useEffect,} from "react";
+import{auth, db} from '../firebase'
 import {
      createUserWithEmailAndPassword,
      signOut,
@@ -45,5 +45,6 @@ const [user, setUser] = useState({});
 };
 
 export const UserAuth = () => {
-    return UserContext(UserContext)
+    return useContext(UserContext)
 };
+

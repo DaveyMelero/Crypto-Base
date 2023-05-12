@@ -1,18 +1,28 @@
-import React from 'react'
-import {Link} from 'react-router-dom' 
+import React, {useState} from 'react'
+import {Link, useNavigate} from 'react-router-dom' 
 import ThemeToggle from './ThemeToggle'
 import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
-import { useState } from 'react'
-
-
+import { UserAuth } from '../context/AuthContext'
 
 
 const Navbar = () => {
     const [nav, setNav] = useState(false)
+    const {user, logout} = UserAuth()
+    const navigate = useNavigate
 
     const handleNav = () => {
         setNav(!nav) 
     };
+
+  const handleSignOut = async () => {
+    try {
+      await logout();
+      navigate('/');
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
 
   return (
     <div>
