@@ -6,9 +6,9 @@ import { UserAuth } from '../context/AuthContext'
 
 
 const Navbar = () => {
-    const [nav, setNav] = useState(false)
-    const {user, logout} = UserAuth()
-    const navigate = useNavigate
+    const [nav, setNav] = useState(false);
+    const {user, logout} = UserAuth();
+    const navigate = useNavigate();
 
     const handleNav = () => {
         setNav(!nav) 
@@ -27,17 +27,28 @@ const Navbar = () => {
   return (
     <div>
        <div className='rounded-div flex items-center justify-between h-20 font-bold'>
-            <Link tp='/'>
+            <Link to='/'>
                 <h1 className='text-2xl'>Cryptobase</h1>
             </Link>
             <div className='hidden md:block'>
                 <ThemeToggle />
             </div>
-            <div className='hidden md:block'>
-                <Link to='/signin' className='p-4 hover:text-accent'>Sign in</Link>
-                <Link to='/signup' className='bg-button text-btntext px-5 py-2 ml-2 rounded-2xl shadow-lg hover:shadow-2xl'>Sign Up</Link>
-            </div>
 
+            {user?.email ? (
+               <div>
+                <Link to='/account' className='p-4'>
+                   Account</Link>
+                <button onClick={handleSignOut}>Sign Out</button>
+               </div>
+            ) : (
+                 <div className='hidden md:block'>
+                 <Link to='/signin' className='p-4 hover:text-accent'>Sign in
+                 </Link>
+                 <Link to='/signup' className='bg-button text-btntext px-5 py-2 ml-2 rounded-2xl shadow-lg hover:shadow-2xl'>Sign Up
+                 </Link>
+             </div>
+            )}
+           
             {/* Menu Icon */}
             <div onClick={handleNav} className='block md:hidden cursor-pointer z-10'>
                 {nav ? <AiOutlineClose  size={20}/> : <AiOutlineMenu size={20}/>}
