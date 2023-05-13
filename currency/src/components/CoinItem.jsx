@@ -12,10 +12,10 @@ const CoinItem = ({coin}) => {
   const [savedCoin, setSavedCoin] = useState(false);
   const { user } = UserAuth();
 
-  const coinPath = doc(db, 'users', `${user?.email}`);
+ const coinPath = doc(db, 'users', `${user?.email}`);
   const saveCoin = async () => {
     if (user?.email) {
-      setSavedCoin(true) 
+      setSavedCoin(true)
       await updateDoc(coinPath, {
         watchList: arrayUnion({
           id: coin.id,
@@ -71,3 +71,5 @@ const CoinItem = ({coin}) => {
 }
 
 export default CoinItem
+
+
