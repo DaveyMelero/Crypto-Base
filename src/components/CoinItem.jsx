@@ -7,7 +7,6 @@ import {db} from '../firebase';
 import {arrayUnion, arrayunion, doc, updateDoc} from 'firebase/firestore';
 
 
-
 const CoinItem = ({coin}) => { 
   const [savedCoin, setSavedCoin] = useState(false);
   const { user } = UserAuth();
